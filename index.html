@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f8fc"><meta name="description" content="Open Mail — an open-source, privacy-conscious mail client for Gmail and Outlook.">
+<title>Open Mail — your inbox, your rules</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#" aria-label="Open Mail home"><span class="brand-mark">✉</span><span>open<span class="brand-light">mail</span></span></a>
+    <button class="compose primary" id="composeBtn"><span>＋</span> Compose</button>
+    <nav class="folders" aria-label="Mail folders">
+      <button class="folder active" data-folder="inbox"><span>▣</span> Inbox <b id="inboxCount">4</b></button>
+      <button class="folder" data-folder="starred"><span>☆</span> Starred</button>
+      <button class="folder" data-folder="snoozed"><span>◷</span> Snoozed</button>
+      <button class="folder" data-folder="sent"><span>↗</span> Sent</button>
+      <button class="folder" data-folder="drafts"><span>▤</span> Drafts</button>
+      <button class="folder" data-folder="archive"><span>▱</span> Archive</button>
+      <button class="folder" data-folder="trash"><span>♲</span> Trash</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-label">YOUR ACCOUNTS</div>
+      <div id="accountsList" class="accounts-list"><div class="account-row"><span class="provider-dot gmail-dot">G</span><span>Gmail</span><span class="account-state">Demo</span></div><div class="account-row"><span class="provider-dot outlook-dot">O</span><span>Outlook</span><span class="account-state">Demo</span></div></div>
+      <button class="connect-side" id="connectBtn">＋ Connect an account</button>
+      <div class="privacy-note"><span>◈</span><div><strong>Your mail stays yours</strong><p>OAuth sign-in. No passwords stored.</p></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="Search mail" aria-label="Search mail"><button id="clearSearch" aria-label="Clear search">×</button></div>
+      <div class="top-actions"><button class="icon-button" id="refreshBtn" title="Refresh mail" aria-label="Refresh mail">↻</button><button class="icon-button" id="helpBtn" title="About Open Mail" aria-label="About Open Mail">?</button><button class="avatar" id="profileBtn" title="Account status">A</button></div>
+    </header>
+    <section class="welcome" id="welcome">
+      <div><div class="eyebrow"><span class="live-dot"></span> OPEN SOURCE · BUILT FOR YOU</div><h1>Your inbox, <em>without the noise.</em></h1><p>One calm place for Gmail and Outlook. Private by design, open by nature.</p></div>
+      <div class="welcome-art" aria-hidden="true"><div class="art-back"></div><div class="art-card"><span>✉</span><i></i><i></i><i></i><b>INBOX ZERO<br><small>one step at a time</small></b></div><div class="art-spark">✳</div></div>
+    </section>
+    <section class="connection-banner" id="connectionBanner"><div class="banner-icon">↗</div><div><strong>Connect your real inbox</strong><p>Securely authorize Gmail or Outlook with the official provider sign-in. Demo messages below are fictional.</p></div><button id="bannerConnect" class="secondary">Connect account</button></section>
+    <section class="mail-panel">
+      <div class="mail-toolbar"><div class="toolbar-left"><input id="selectAll" type="checkbox" aria-label="Select all messages"><button class="icon-button" id="archiveBtn" title="Archive selected">▱</button><button class="icon-button" id="trashBtn" title="Move selected to trash">♲</button><button class="icon-button" id="markReadBtn" title="Mark selected read">●</button><span class="toolbar-divider"></span><span class="folder-title" id="folderTitle">Inbox</span></div><div class="toolbar-right"><span id="resultCount">4 messages</span><button class="icon-button" id="sortBtn" title="Toggle newest first">⇅</button></div></div>
+      <div id="mailList" class="mail-list" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state hidden"><div class="empty-icon">✉</div><h3>Nothing here. That's a good sign.</h3><p>This folder is clear for now.</p></div>
+    </section>
+    <footer><span>Open Mail <span class="footer-dot">·</span> Open-source email workspace</span><span><span class="security-dot"></span> OAuth only <span class="footer-dot">·</span> No passwords collected</span></footer>
+  </main>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<div id="modalBackdrop" class="modal-backdrop hidden">
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head"><div><div class="eyebrow">OPEN MAIL</div><h2 id="modalTitle">Connect your inbox</h2></div><button id="closeModal" class="icon-button" aria-label="Close">×</button></div>
+    <div id="modalBody"></div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body></html>
