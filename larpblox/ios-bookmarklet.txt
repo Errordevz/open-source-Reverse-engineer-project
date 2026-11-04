@@ -1,0 +1,17 @@
+LarpBlox — Safari bookmarklet for iPhone
+
+Bookmarklet URL (copy the entire single line below):
+javascript:(()=>{location.href='https://larpblox-o5bdgx.v2.appdeploy.ai/'})();
+
+iPhone Safari setup:
+1. Open any ordinary webpage in Safari and tap Share → Add Bookmark.
+2. Save it with the name LarpBlox.
+3. Open Bookmarks → Edit → select the LarpBlox bookmark.
+4. Replace the saved address with the bookmarklet URL above. Save.
+5. Open any page and tap the LarpBlox bookmark to launch the simulator.
+
+Important:
+- Safari on iPhone supports bookmarklets, but iOS does not provide a standard one-tap import of a bookmarklet file into Safari's bookmark database.
+- If iOS strips the javascript: prefix while editing, paste it again and save.
+- This bookmarklet simply navigates to the public LarpBlox app. It does not interact with Roblox or inject code into Roblox pages.
+- Recommended alternative: open https://larpblox-o5bdgx.v2.appdeploy.ai/ in Safari → Share → Add to Home Screen. This creates an app-like icon and is more reliable than a bookmarklet.
