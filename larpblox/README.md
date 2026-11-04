@@ -8,7 +8,7 @@ The public [zlarp Game Account Simulator](https://zlarp.com/apps/game-account-si
 
 This project implements an original clean-room simulator using those documented interaction patterns and feature categories. It does not copy proprietary source, private assets, or server code.
 
-## Features
+## Project notes\n\n- [Reverse-engineering notes](REVERSE-ENGINEERING-NOTES.md) — what the public reference actually documents, its iPhone interaction model, and the clean-room feature map.\n- [Claude Code instructions](CLAUDE.md) — project guardrails, local workflow and Craft Anything setup notes.\n\n## Features
 
 - Full-screen mobile-first app shell with desktop navigation.
 - Profile, about, stats, friends, badges and experience showcase.
