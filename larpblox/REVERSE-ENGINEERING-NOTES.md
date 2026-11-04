@@ -93,3 +93,16 @@ This build used Craft Anything's published workflow as the methodology reference
 ## Endpoint probes performed
 
 On 4 November 2026, bounded GET probes against a known public Roblox account (user ID 1) returned HTTP 200 for public user details, current avatar data, avatar thumbnails, follower count, public experiences (limit=50), public collectibles (limit=100), and asset thumbnails. The public friends-count endpoint returned HTTP 429 and the friends-list endpoint returned HTTP 403 for that probe. This is why friends import is optional and errors are surfaced instead of assuming a private/blocked list is empty. These probes do not guarantee the endpoints will always respond or that every user's inventory is public.
+
+
+## Version 3 implementation notes
+
+The version 3 UI was rebuilt around the target's portrait/mobile-first product framing rather than the earlier desktop-style admin dashboard. The live app now uses a profile header and banner, compact account statistics, horizontally scrolling profile tabs, friend and badge strips, a currently-wearing section, experience cards, a dedicated avatar preview, and a bottom navigation bar on narrow screens. The Backstage editor remains hidden behind the one-second top-edge hold.
+
+The product-page HTML exposes an eight-image portrait screenshot carousel (236 × 420 CSS pixels) with captions including "Pixel-perfect game account, built for larping", "Editable profile, followers, badges and more", and "Avatar editor". This confirms the target is designed around phone-sized profile and editor screens. The app uses original CSS and UI markup rather than reusing those product screenshots or private visual assets.
+
+The catalog screen in LarpBlox v3 looks up public Roblox asset thumbnails by numeric asset ID and adds the result to local demo inventory. The inventory view has category filters, a search field and wear/take-off controls. A mobile bottom bar exposes Profile, Avatar, Catalog, Inventory and Friends.
+
+The old local profile shape used a `name` field. Version 3 migrates that value to `displayName` so existing local profile customizations are retained. A web app manifest is included at `public/manifest.json`.
+
+Automated AppDeploy validation for the latest deployment reported no frontend errors, no network errors and no backend errors. The hosted browser inspection service was rate-limited during this session, so an independent interactive visual walkthrough on the live URL could not be completed. Physical iPhone Safari installation and touch testing remain to be done.
