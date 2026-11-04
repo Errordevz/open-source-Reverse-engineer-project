@@ -15,7 +15,7 @@ This project implements an original clean-room simulator using those documented 
 - Avatar editor with equipped-item toggles and outfit presets.
 - Inventory with filters and custom/community catalog item entries.
 - Public Roblox username lookup for public display name, avatar thumbnail, follower count, friends count and description, where endpoints are accessible.
-- Optional public friends and public experiences import, subject to Roblox visibility and API availability.
+- Optional public friends and public experiences import, subject to Roblox visibility and API availability.\n- Optional import of currently worn public avatar assets and public collectibles, where Roblox permits access.
 - Public catalog asset thumbnail lookup by numeric asset ID.
 - Hidden Backstage sheet opened by holding the top edge for about one second, with a charging strip and auto-save.
 - Local browser persistence, JSON import/export, image uploads and reset.
