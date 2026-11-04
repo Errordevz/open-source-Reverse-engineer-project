@@ -1,0 +1,11 @@
+{
+  "name": "LarpBlox",
+  "short_name": "LarpBlox",
+  "description": "An independent, clearly labelled Roblox-style profile simulator.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4f5f7",
+  "theme_color": "#191b1f"
+}
