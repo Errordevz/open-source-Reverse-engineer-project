@@ -88,3 +88,8 @@ Roblox may change, rate-limit, restrict or CORS-block these endpoints. Inventory
 The public [Craft Anything repository](https://github.com/storytold/craft-anything) describes a clean-room **Study → Build → Check → Refine** workflow and a Claude Code integration that runs the user's own unmodified local Claude CLI. Its documentation says the user signs in with `claude auth login`; Craft Anything does not handle Claude credentials.
 
 This build used Craft Anything's published workflow as the methodology reference. It was not run on the Ubuntu cloud desktop during this session because the Remote Desktop Commander device was offline. Claude Code was not installed or signed in on that machine.
+
+
+## Endpoint probes performed
+
+On 4 November 2026, bounded GET probes against a known public Roblox account (user ID 1) returned HTTP 200 for public user details, current avatar data, avatar thumbnails, follower count, public experiences (limit=50), public collectibles (limit=100), and asset thumbnails. The public friends-count endpoint returned HTTP 429 and the friends-list endpoint returned HTTP 403 for that probe. This is why friends import is optional and errors are surfaced instead of assuming a private/blocked list is empty. These probes do not guarantee the endpoints will always respond or that every user's inventory is public.
