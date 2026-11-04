@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Mobile profile and bottom navigation",
+    "sanity": true,
+    "viewport": "mobile",
+    "covers": [
+      "profile layout",
+      "profile statistics",
+      "friends strip",
+      "currently wearing",
+      "creations",
+      "mobile bottom navigation",
+      "profile tabs"
+    ],
+    "description": "Check the profile and all mobile navigation destinations.",
+    "steps": [
+      "Open the profile",
+      "Use bottom navigation to open Avatar, Catalog, Inventory and Friends",
+      "Switch through About, Creations, Favorites, Inventory and Badges"
+    ],
+    "expected": "Every destination renders and the bottom navigation stays above the iPhone safe area."
+  },
+  {
+    "name": "Backstage long-press and autosave",
+    "viewport": "mobile",
+    "covers": [
+      "top-edge hold",
+      "charging strip",
+      "Backstage sheet",
+      "autosave",
+      "hidden editor"
+    ],
+    "description": "Verify the one-second hidden settings gesture.",
+    "steps": [
+      "Load the profile",
+      "Hold the very top edge for one second",
+      "Change the display name and close Backstage",
+      "Reload"
+    ],
+    "expected": "Backstage opens from the charging strip, changes persist and there is no visible editor shortcut."
+  },
+  {
+    "name": "Public Roblox profile import without credentials",
+    "viewport": "mobile",
+    "covers": [
+      "username lookup",
+      "public avatar thumbnail",
+      "public follower count",
+      "credential safety"
+    ],
+    "description": "Import available public Roblox profile fields using only a username.",
+    "steps": [
+      "Open Backstage",
+      "Enter a public username only",
+      "Import the profile"
+    ],
+    "expected": "Available public data imports without requesting a password, cookie, token or login."
+  },
+  {
+    "name": "Avatar, inventory and catalog",
+    "viewport": "mobile",
+    "covers": [
+      "avatar preview",
+      "inventory filters",
+      "wear and remove item",
+      "catalog asset lookup",
+      "custom item creation",
+      "public worn avatar import",
+      "public collectibles"
+    ],
+    "description": "Verify local avatar and inventory workflows and public read-only lookups.",
+    "steps": [
+      "Open Inventory and search for an item",
+      "Wear and remove an item",
+      "Open Catalog and search a numeric asset ID",
+      "Add an item in Backstage"
+    ],
+    "expected": "Inventory search remains focused, wear state updates, and catalog thumbnails can be added locally."
+  },
+  {
+    "name": "Friends, creations, badges and profile backup",
+    "viewport": "desktop",
+    "covers": [
+      "friends management",
+      "public friends import",
+      "creations management",
+      "public games import",
+      "badges management",
+      "JSON export and import",
+      "reset confirmation"
+    ],
+    "description": "Verify editable profile sections and local backup.",
+    "steps": [
+      "Add a friend, creation and badge",
+      "Export and re-import profile JSON",
+      "Open Settings and reset with confirmation"
+    ],
+    "expected": "Profile sections update, JSON backup restores data, and reset requires confirmation."
+  }
+]
