@@ -1,45 +1,56 @@
 # LarpBlox
 
-An independent, open-source, mobile-first Roblox-style account simulator for roleplay, demos and screen recordings.
+An independent, open-source, mobile-first Roblox account simulator for roleplay, demos and screen recordings.
 
-## Live version
+## Live app
 
-- **LarpBlox v3:** https://larpblox-o5bdgx.v2.appdeploy.ai/
-- **Source branch:** [larpblox](https://github.com/Errordevz/open-source-Reverse-engineer-project/tree/larpblox/larpblox)
+**https://larpblox-o5bdgx.v2.appdeploy.ai/**
+
+Source branch: [larpblox](https://github.com/Errordevz/open-source-Reverse-engineer-project/tree/larpblox/larpblox)
+
+## V4 features
+
+- **Discover home:** featured Roblox experiences with real public Roblox game thumbnails and links to their original game pages.
+- **Public profile copy:** enter a Roblox username to import public profile name, avatar thumbnail, follower/friend counts and description where the public endpoints allow it.
+- **Custom identity:** edit display name, username, demo Robux balance and visual Verified/Premium badges in Backstage.
+- **Avatar editor:** preview the displayed avatar, manage outfit pieces, and equip/take off items locally.
+- **Catalog shelf:** search a curated snapshot of 55 real public Roblox catalog items with public listing names, creators, prices and Roblox CDN thumbnails.
+- **TikTok-linked UGC picks:** four creator posts link to their matching Roblox catalog listings (jumping spider, celestial halo, ice-crystal wings and Y2K denim cap).
+- **Live asset lookup:** enter a numeric Roblox asset ID to fetch current public item details and its thumbnail through the read-only backend.
+- **Inventory, friends, creations and badges:** add, remove, filter, import public data when available, and customize displayed profile content.
+- **Hidden Backstage editor:** hold the very top edge for about one second; a charging strip appears and the editor slides up. Changes save locally.
+- **Local JSON backup:** export/import simulator state and reset with confirmation.
+- **PWA metadata:** add to the iPhone Home Screen from Safari.
 
 ## Reference research
 
-The target is zlarp's [Game Account Simulator](https://zlarp.com/apps/game-account-simulator), not a Roblox game or a real Roblox client. Its public page describes editable profile details, followers, badges, avatar editor, inventory, outfits, currency, catalog/community items and displayed games.
+The target is zlarp's [Game Account Simulator](https://zlarp.com/apps/game-account-simulator), not a Roblox game or a real Roblox client. Its public product page describes editable username, coins, friends, followers, inventory/outfits, avatar and displayed games. The [How zlarp works guide](https://zlarp.com/blog/how-it-works) documents the hidden Backstage gesture.
 
-The public [How zlarp works guide](https://zlarp.com/blog/how-it-works) documents the hidden Backstage gesture: hold the very top edge for about one second, watch the charge strip, then the settings sheet slides up; edits save as you type.
+We also reviewed public Roblox larp-tool feature descriptions such as [RoLarp](https://chromewebstore.google.com/detail/rolarp/imccmgejafnlcncnolkfdglhpbkehagb): copy public user data, custom profile mode, visual badges and a local display Robux amount.
 
-The product page exposes portrait screenshot assets and captions for the account screen, editable profile, avatar editor, inventory/outfits and other features. Searches for a verifiable public walkthrough video of this exact product did not find one, so the implementation is based on public screenshots, product copy and the written interaction guide—not a claimed video teardown.
+TikTok creator-post metadata and direct links are recorded in [REVERSE-ENGINEERING-NOTES.md](REVERSE-ENGINEERING-NOTES.md). TikTok's login/signup wall prevented reliable frame extraction in this session, so no claim is made that the clips were fully watched.
 
-## Version 3
+## Data and safety boundaries
 
-- Mobile-first profile screen with profile stats, tabs, friends, currently wearing, creations and badges.
-- Fixed mobile navigation for Profile, Avatar, Catalog, Inventory and Friends.
-- Avatar preview and local equip/take-off controls.
-- Inventory filters, search, custom items and public catalog thumbnail lookup by numeric asset ID.
-- Username-only public Roblox profile import, plus optional public avatar, worn-item, collectibles, friends and creations imports where Roblox exposes them.
-- Hidden one-second top-edge Backstage gesture with charging strip, slide-up editor and local auto-save.
-- Local JSON import/export, image uploads, and reset confirmation.
-- Persistent SIMULATOR labeling.
+- This is an independent simulator and is **not affiliated with or endorsed by Roblox or zlarp**.
+- Public Roblox CDN thumbnails and public catalog metadata are used with links back to the corresponding Roblox listing.
+- No Roblox password, cookie, session token or account permission is requested.
+- Public profile imports are read-only. Privacy settings and Roblox rate limits are respected.
+- Demo Robux, visual badges, local purchases and inventory changes never affect a real Roblox account or grant real items.
+- No transaction receipts, payment confirmations or fake transfer history are generated.
+- The catalog search is a curated local snapshot of public items; asset-ID lookup fetches current public item details. Roblox may change or rate-limit public APIs.
 
-## Clean-room and safety boundaries
+## iPhone installation
 
-This is an original clean-room implementation of the publicly documented feature set and interaction pattern. It does not copy zlarp's source code, private assets, backend, or access controls.
+1. Open the live app in Safari.
+2. Tap **Share**.
+3. Choose **Add to Home Screen**.
+4. Launch LarpBlox from the new Home Screen icon.
 
-No Roblox password, cookie, session token or login is requested. Public endpoints may be rate-limited, restricted by privacy settings, CORS-blocked or changed by Roblox. The app never bypasses those restrictions. Local inventory, outfit toggles, demo Robux, badges and displayed statistics are fictional; they do not grant items, Robux, trades or account changes. There are no editable fake receipts or transaction statements.
+## Project files
 
-Roblox is a trademark of Roblox Corporation. LarpBlox is unofficial, independent and not endorsed by Roblox.
-
-## Project notes
-
-- [Reverse-engineering notes](REVERSE-ENGINEERING-NOTES.md) — public reference findings, video-search result, feature map and API limitations.
-- [Claude Code instructions](CLAUDE.md) — project guardrails, local workflow and Craft Anything setup notes.
-- [iOS bookmark instructions](ios-bookmarklet.txt).
-
-## iPhone install
-
-Open the live URL in Safari and use Share → Add to Home Screen. Hold the very top edge of the screen for about one second to open Backstage.
+- [Source](index.html)
+- [Research notes](REVERSE-ENGINEERING-NOTES.md)
+- [Test suite](tests/tests.json)
+- [PWA manifest](public/manifest.json)
+- [iOS bookmark instructions](ios-bookmarklet.txt)
