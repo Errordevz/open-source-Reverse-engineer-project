@@ -26,26 +26,6 @@ async function thumbnailsForAssets(ids: number[]): Promise<Map<number, string>> 
 }
 
 export const handler = router({
-    'GET /api/catalog': [async ({ query }) => {
-        const keyword = String(query.q ?? '').trim().slice(0, 80);
-        if (!keyword) return json({ items: [] });
-        const result = await readJson<{ data?: RobloxAsset[] }>(
-            'https://catalog.roblox.com/v1/search/items/details?Category=11&Limit=12&SortType=3&Keyword=' + encodeURIComponent(keyword)
-        );
-        if (!result) return error('Roblox catalog is temporarily unavailable.', 502);
-        const raw = (result.data ?? []).filter((item) => item.id && item.itemType === 'Asset');
-        const images = await thumbnailsForAssets(raw.map((item) => Number(item.id)));
-        const items = raw.map((item) => ({
-            assetId: String(item.id),
-            name: String(item.name ?? 'Catalog item'),
-            creator: String(item.creatorName ?? 'Roblox creator'),
-            price: item.lowestPrice ?? item.price ?? null,
-            image: images.get(Number(item.id)) ?? '',
-            type: 'Accessories',
-        }));
-        return json({ items });
-    }],
-
     'GET /api/asset/:id': [async ({ params }) => {
         const id = String(params.id ?? '');
         if (!/^\d+$/.test(id)) return error('A numeric asset ID is required.', 400);
