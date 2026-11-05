@@ -156,3 +156,27 @@ The app uses the public thumbnail URLs and links each card to its original Roblo
 - Roblox's catalog search endpoint returned a server-side 502 during the app test, so the UI uses the curated 55-item snapshot rather than claiming live keyword search. Numeric asset-ID details work through the backend.
 - Roblox public endpoints may rate-limit or hide friends, inventory or avatar data. A private/unavailable endpoint is reported instead of bypassed.
 - AppDeploy's latest deployment status reported ready with no frontend, network or backend QA errors. Live browser reinspection was rate-limited after the final catalog update; physical iPhone Safari testing remains outstanding.
+
+
+## 2026-11-05 — V5 parity implementation
+
+### Added from the reference feature map
+
+- **Avatar editor:** local skin tone, shirt color, pants color, face and body-scale controls. The preview changes immediately and does not publish to Roblox.
+- **Outfit presets:** save, load and delete named local presets that include appearance settings and the currently equipped catalog items.
+- **Live catalog search:** the frontend now queries a read-only backend route that calls Roblox's public accessory catalog and public thumbnail API. If Roblox's catalog endpoint is unavailable, the UI falls back to the cached curated shelf and labels it as a fallback.
+- **Profile imports:** public follower/following/friend counts, public friend headshots, public creations, worn avatar items, collectibles, badges and favorites are available as optional imports where Roblox exposes them.
+- **Creator UGC shelf:** the four MiranzaUGC_offi TikTok post cards now display the post caption, date and duration metadata alongside the matching public Roblox listing and direct source links.
+
+### TikTok inspection result
+
+The public post pages exposed metadata for the four UGC clips, including the creator handle, captions, dates and durations. The video retrieval tool reported `login_required`; its stream probes returned HTML/login responses rather than MP4 bytes. No decoded frames or transcript were delivered. An alternate public-viewer attempt returned a Cloudflare challenge. Therefore the app only shows creator-written caption metadata and links to the original TikTok posts; it does not embed or claim to have watched the videos. Human handoff was not available because the browser service was returning HTTP 429 while creating sessions.
+
+### Boundaries retained
+
+- No Roblox passwords, cookies, access tokens or recovery codes.
+- No writes to Roblox accounts, inventory, outfits, friends, currency or transactions.
+- Demo purchases only change the browser-local simulator state.
+- No editable transaction history, receipts, statements or payment confirmations.
+- Public API failures and privacy restrictions are surfaced instead of bypassed.
+- All creator thumbnails are public Roblox catalog thumbnails linked to their original listing; TikTok clips remain source links rather than rehosted videos.
