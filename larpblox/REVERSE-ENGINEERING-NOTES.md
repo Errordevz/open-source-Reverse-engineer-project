@@ -106,3 +106,53 @@ The catalog screen in LarpBlox v3 looks up public Roblox asset thumbnails by num
 The old local profile shape used a `name` field. Version 3 migrates that value to `displayName` so existing local profile customizations are retained. A web app manifest is included at `public/manifest.json`.
 
 Automated AppDeploy validation for the latest deployment reported no frontend errors, no network errors and no backend errors. The hosted browser inspection service was rate-limited during this session, so an independent interactive visual walkthrough on the live URL could not be completed. Physical iPhone Safari installation and touch testing remain to be done.
+
+
+## 2026-11-05 — V4 product and asset research
+
+### Zlarp feature baseline
+
+The reference product is [zlarp Game Account Simulator](https://zlarp.com/apps/game-account-simulator). Its public product copy describes a profile simulator with avatar, inventory and followers, and editable username, in-game coins, friends, followers, inventory items, avatar outfit, displayed games and badges. The [How zlarp works guide](https://zlarp.com/blog/how-it-works) confirms the phone-first web-app pattern and the top-edge hold gesture for its Backstage editor.
+
+The public [RoLarp Chrome Web Store listing](https://chromewebstore.google.com/detail/rolarp/imccmgejafnlcncnolkfdglhpbkehagb) describes adjacent Roblox LARP features: copy public user information, custom profile mode, visual Verified/Premium indicators and a local Robux display. LarpBlox implements comparable local-only visual controls without copying its code.
+
+### TikTok creator posts found
+
+These public TikTok posts were linked to the matching Roblox catalog items in the LarpBlox catalog. Their public captions and page metadata were available, but TikTok presented a login/signup wall during frame extraction. **The actual video footage was not successfully inspected in this session.** Do not describe the clips as watched or use metadata as a transcript.
+
+| Creator post | Public caption metadata | Matching Roblox item |
+|---|---|---|
+| [Jumping spider UGC](https://www.tiktok.com/@miranza_offi/video/7669489179167821078) | “CUTE JUMPING SPIDER UGC”; 31 seconds | [Cute black jumping spider](https://www.roblox.com/catalog/93876979367445/Cute-black-jumping-spider) |
+| [Celestial halo UGC](https://www.tiktok.com/@miranza_offi/video/7668732272891137302) | “Golden celestial halo UGC”; 33 seconds | [Golden divine celestial halo](https://www.roblox.com/catalog/77745503037034/Golden-divine-celestial-halo) |
+| [Ice crystal wings UGC](https://www.tiktok.com/@miranza_offi/video/7667665334807186710) | “ICE CRYSTAL WINGS UGC”; 25 seconds | [Golden ice crystal wings](https://www.roblox.com/catalog/123578458711518/Golden-ice-crystal-wings) |
+| [Y2K denim cap](https://www.tiktok.com/@miranza_offi/video/7606486011270401302) | “Y2K denim cap with PBR”; 24 seconds | [Y2K blue jean cap](https://www.roblox.com/catalog/114241510292784/Y2K-blue-jean-cap) |
+
+TikTok's public oEmbed endpoint returned official embed metadata, but the video inspection pipeline did not deliver decoded frames or audio. The browser showed a signup/birthday prompt and cookie consent. A human can complete any login/CAPTCHA gate in the live browser session; credentials should never be shared in chat.
+
+### Public Roblox catalog verification
+
+A public Roblox catalog search was run for Y2K, halo, spider, wings, streetwear hats and face accessories. Fifty-five public catalog results were added to the curated local catalog shelf, including each item's name, creator, listed price and public Roblox CDN thumbnail. The four TikTok-linked items were separately checked through the public economy asset-details endpoint:
+
+- Asset 93876979367445 — Cute black jumping spider — 95 Robux — Powerful artists.
+- Asset 77745503037034 — Golden divine celestial halo — 95 Robux — Powerful artists.
+- Asset 123578458711518 — Golden ice crystal wings — 140 Robux — Powerful artists.
+- Asset 114241510292784 — Y2K blue jean cap — 105 Robux — Powerful artists.
+
+The app uses the public thumbnail URLs and links each card to its original Roblox catalog page. The catalog search is a curated snapshot; numeric asset-ID lookup uses the read-only backend to fetch current public details.
+
+### V4 implementation
+
+- Dark, mobile-first Discover screen with real featured Roblox game thumbnails.
+- Username-only public profile import; custom display name, demo balance and visual Verified/Premium toggles.
+- Backstage identity, avatar, inventory, friends, creations, badges and settings.
+- 55-item curated catalog shelf plus four TikTok-linked UGC cards.
+- Local try-on and demo-only buy flow; no Roblox purchase, grant or account modification.
+- Read-only backend routes for public profile, friends, games, worn avatar assets, collectibles, catalog search and item details.
+- PWA manifest and mobile navigation.
+
+### Known limitations
+
+- TikTok videos were not watched frame-by-frame because the platform required sign-in. The four posts are linked in-app for direct viewing.
+- Roblox's catalog search endpoint returned a server-side 502 during the app test, so the UI uses the curated 55-item snapshot rather than claiming live keyword search. Numeric asset-ID details work through the backend.
+- Roblox public endpoints may rate-limit or hide friends, inventory or avatar data. A private/unavailable endpoint is reported instead of bypassed.
+- AppDeploy's latest deployment status reported ready with no frontend, network or backend QA errors. Live browser reinspection was rate-limited after the final catalog update; physical iPhone Safari testing remains outstanding.
