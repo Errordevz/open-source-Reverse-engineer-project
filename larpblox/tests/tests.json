@@ -1,100 +1,106 @@
 [
   {
-    "name": "Mobile profile and bottom navigation",
+    "name": "Discover, navigation and featured Roblox experiences",
     "sanity": true,
     "viewport": "mobile",
     "covers": [
-      "profile layout",
-      "profile statistics",
-      "friends strip",
-      "currently wearing",
-      "creations",
-      "mobile bottom navigation",
-      "profile tabs"
+      "Discover home",
+      "mobile navigation",
+      "public Roblox game thumbnails",
+      "public username copy flow"
     ],
-    "description": "Check the profile and all mobile navigation destinations.",
+    "description": "Verify the app opens on a real Roblox-themed Discover screen and navigation works.",
     "steps": [
-      "Open the profile",
-      "Use bottom navigation to open Avatar, Catalog, Inventory and Friends",
-      "Switch through About, Creations, Favorites, Inventory and Badges"
+      "Open LarpBlox",
+      "Confirm the five featured experience cards show Roblox thumbnails",
+      "Use the public username field to copy a profile",
+      "Navigate through Catalog, Avatar, Profile and Inventory"
     ],
-    "expected": "Every destination renders and the bottom navigation stays above the iPhone safe area."
+    "expected": "Discover opens first, five featured experiences use public Roblox thumbnails, and navigation works."
   },
   {
-    "name": "Backstage long-press and autosave",
+    "name": "Curated public Roblox catalog search and live asset details",
     "viewport": "mobile",
     "covers": [
-      "top-edge hold",
-      "charging strip",
-      "Backstage sheet",
-      "autosave",
-      "hidden editor"
+      "curated catalog search across 55 public Roblox items",
+      "public listing names and creator attribution",
+      "Roblox CDN thumbnails",
+      "live asset-ID details through the backend"
     ],
-    "description": "Verify the one-second hidden settings gesture.",
+    "description": "Search the curated public catalog shelf and verify the asset-ID detail route returns current public item information.",
     "steps": [
-      "Load the profile",
-      "Hold the very top edge for one second",
-      "Change the display name and close Backstage",
-      "Reload"
+      "Open Catalog",
+      "Search for Y2K, halo, spider and wings",
+      "Confirm results include public names, creator and price",
+      "Use asset ID lookup for a known public item"
     ],
-    "expected": "Backstage opens from the charging strip, changes persist and there is no visible editor shortcut."
+    "expected": "Catalog search filters the curated public item shelf; asset-ID lookup returns live public item details and a Roblox thumbnail."
   },
   {
-    "name": "Public Roblox profile import without credentials",
+    "name": "TikTok-linked UGC item try-on and demo purchase",
     "viewport": "mobile",
     "covers": [
-      "username lookup",
-      "public avatar thumbnail",
-      "public follower count",
-      "credential safety"
+      "TikTok creator source links",
+      "real Roblox catalog asset links",
+      "UGC item images",
+      "local try-on",
+      "demo-only purchase and balance",
+      "public Roblox item details through API route",
+      "matching public Roblox item details"
     ],
-    "description": "Import available public Roblox profile fields using only a username.",
+    "description": "Try featured UGC assets and use the local-only demo buy flow.",
     "steps": [
-      "Open Backstage",
-      "Enter a public username only",
-      "Import the profile"
+      "Open Catalog",
+      "Open one TikTok source link and its Roblox listing link",
+      "Tap Try on for an item",
+      "Tap Buy · Demo and confirm",
+      "Open Inventory and Avatar"
     ],
-    "expected": "Available public data imports without requesting a password, cookie, token or login."
+    "expected": "The selected public asset appears in local inventory and can be equipped; demo purchase changes only local demo balance."
   },
   {
-    "name": "Avatar, inventory and catalog",
+    "name": "Backstage identity, profile import and visual badges",
     "viewport": "mobile",
     "covers": [
-      "avatar preview",
-      "inventory filters",
-      "wear and remove item",
-      "catalog asset lookup",
-      "custom item creation",
-      "public worn avatar import",
-      "public collectibles"
+      "top-edge hold to Backstage",
+      "public username import without credentials",
+      "custom display identity",
+      "visual Verified and Premium badges",
+      "local autosave",
+      "public Roblox profile API route"
     ],
-    "description": "Verify local avatar and inventory workflows and public read-only lookups.",
+    "description": "Verify profile copying and custom display settings in Backstage.",
     "steps": [
-      "Open Inventory and search for an item",
-      "Wear and remove an item",
-      "Open Catalog and search a numeric asset ID",
-      "Add an item in Backstage"
+      "Hold the top edge for about one second",
+      "Open Identity",
+      "Import a public Roblox username",
+      "Toggle the visual Verified and Premium badges",
+      "Reload the page"
     ],
-    "expected": "Inventory search remains focused, wear state updates, and catalog thumbnails can be added locally."
+    "expected": "Public profile fields import without passwords; visual badges and profile settings persist locally."
   },
   {
-    "name": "Friends, creations, badges and profile backup",
+    "name": "Avatar, inventory, friends, creations and backup",
     "viewport": "desktop",
     "covers": [
+      "avatar preview and outfit",
+      "inventory management",
       "friends management",
-      "public friends import",
-      "creations management",
-      "public games import",
-      "badges management",
+      "displayed creations",
+      "badges",
       "JSON export and import",
-      "reset confirmation"
+      "reset confirmation",
+      "public Roblox friends games avatar and collectibles API routes",
+      "read-only backend routes for public Roblox profile and inventory data"
     ],
-    "description": "Verify editable profile sections and local backup.",
+    "description": "Verify all profile simulator sections and local data portability.",
     "steps": [
-      "Add a friend, creation and badge",
-      "Export and re-import profile JSON",
-      "Open Settings and reset with confirmation"
+      "Open Avatar and equip an item",
+      "Open Inventory and filter items",
+      "Manage friends, creations and badges in Backstage",
+      "Export profile JSON and import it again",
+      "Reset only after confirmation"
     ],
-    "expected": "Profile sections update, JSON backup restores data, and reset requires confirmation."
+    "expected": "Items, friends, creations and badges update locally; backup restores state and reset is confirmed."
   }
 ]
