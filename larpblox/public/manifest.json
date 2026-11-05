@@ -1,7 +1,7 @@
 {
   "name": "LarpBlox",
   "short_name": "LarpBlox",
-  "description": "An independent, clearly labelled mobile Roblox account and catalog simulator.",
+  "description": "An independent, clearly labelled Roblox account and avatar simulator.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
